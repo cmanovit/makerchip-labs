@@ -15,7 +15,7 @@ m4+definitions(['
    m4_define(['TBD'], [''0'])
 
 '])
-\TLV shell(@_viz, @_imem, @_rf_rd, @_rf_wr, @_rf_chk, _check_value)
+\TLV shell(@_viz, @_imem, @_rf_rd, @_rf_wr, @_rf_chk, _check_value, _end_cycle)
    // =======================================================================================================
    // THIS CODE IS PROVIDED. NO NEED TO LOOK BEHIND THE CURTAIN. LEARN MORE USING THE MAKERCHIP TUTORIALS.
    
@@ -52,7 +52,7 @@ m4+definitions(['
       @_rf_chk
          // Assert these to end simulation (before Makerchip cycle limit).
          *passed = /xreg[31]$value == 1 && /xreg[10]$value == _check_value;//(1+2+3+4+5+6+7+8+9);
-         *failed = *cyc_cnt > 75;
+         *failed = *cyc_cnt > _end_cycle;
          
          
    |for_viz_only
