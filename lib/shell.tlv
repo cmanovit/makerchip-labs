@@ -239,7 +239,7 @@ m4+definitions(['
          // Register file
          //
          /imem[m4_eval(M4_NUM_INSTRS-1):0]  // TODO: Cleanly report non-integer ranges.
-            $rd = ! |for_viz_only$reset && |for_viz_only$pc[5:2] == #imem;
+            $rd = ! |for_viz_only$reset && |for_viz_only$pc[7:2] == #imem;
             \viz_js
                box: {width: 640, height: 18, strokeWidth: 0},
                init() {
