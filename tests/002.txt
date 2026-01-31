@@ -1,0 +1,15 @@
+   m4_asm(ADD, r10, r0, r0)             // Initialize x10 to 0.
+   // Function:
+   m4_asm(ADDI, r2, r0, 1)
+   m4_asm(ADDI, r1, r0, 1)
+   m4_asm(BLT, r0, r1, 1000)		// taken & skip 1 instr
+   m4_asm(ADDI, r2, r2, 1)
+   m4_asm(BLT, r0, r1, 1000)		// taken & skip 1 instr
+   m4_asm(ADDI, r2, r2, 1)
+   m4_asm(ADDI, r2, r2, 1)
+
+   m4_asm(ADD, r10, r2, r0)             // Store final result to register x10 so that it can be read by main program
+   m4_asm(ADDI, r31, r0, 1)             // Signal end of test
+   
+   m4_define(['CHECK_VALUE'], 2)
+
